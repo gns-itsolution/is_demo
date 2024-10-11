@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Таблица</title>
+        <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+    </head>
+    <body>
+        <div id="myGrid" class="ag-theme-quartz" style="height: 500px"></div>
+    </body>
+
+    <script>
+      const gridOptions = {
+         // Зависит от того, как вы отдаете свои данные на шаблон
+         // Допустим так [{"TITLE": "Моя задача1", "DESCRIPTION": "Описание1"}, {"TITLE": "Моя задача2", "DESCRIPTION": "Описание2"}]
+         rowData: {{ tasks|safe }},
+
+
+         columnDefs: [
+           {#{ headerName: "TITLE", field: 'Название' },  // headerName - ключ, под которым данные лежат в rowData, field - как будет отображать AG GRID#}
+           {#{ headerName: "DESCRIPTION", field: 'Описание' }, // Если headerName и fileld совпадают, то достаточно указать только fileld#}
+           // Ваши столбцы таблицы
+             {field: 'TITLE'},
+             {field: 'DESCRIPTION'}
+         ]
+        };
+
+      const myGridElement = document.querySelector('#myGrid');
+      agGrid.createGrid(myGridElement, gridOptions);
+    </script>
+</html>

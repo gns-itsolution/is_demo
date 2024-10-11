@@ -47,6 +47,8 @@ urlpatterns = [
     path('deal_for_powerbi/', include('deal_for_powerbi.urls')),
     path('autocomplete_crm_tasks/', include('autocomplete_crm_tasks.urls')),
     path('move_tasks_deadline_js/', include('move_tasks_deadline_js.urls', 'move_tasks_deadline_js')),
+    path('tasks_list_ag_grid/', include('task_list_ag_grid.urls')),
+    path('to_vue/', include('from_dj_to_view.urls')),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
